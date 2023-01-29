@@ -19,15 +19,10 @@ def get_text_messages(message: Message):
     logger.info('get_text_messages\n{}'.format(message))
     if message.text.lower().startswith('привет'):
         bot.reply_to(message, "Привет")
+    elif message.text.startswith('/'):
+        bot.reply_to(message, "Команда не реализована")
     else:
         bot.reply_to(message, "Моя-твоя-не-понимай\nКоманда /help")
-
-
-@bot.message_handler(func=lambda param: param.startswith('/'))
-def reply_default_command(message: Message):
-    """Дэфолтная реакция на любую команду, не обработанную до этого момента."""
-    logger.info('reply_default_command\n{}'.format(message))
-    bot.reply_to(message, "Команда не реализована")
 
 
 @bot.callback_query_handler(func=None)

@@ -148,7 +148,7 @@ def generate_cities_buttons(cities: dict) -> InlineKeyboardMarkup:
         cities_buttons.append(
             InlineKeyboardButton(
                 text=city,
-                callback_data='set_city:{}:{}'.format(city.split(',')[0][:20], gaiaId)
+                callback_data='set_city:{}:{}'.format(city.split(',')[0][:18], gaiaId)
             )
         )
     keyboard = InlineKeyboardMarkup(row_width=1)
